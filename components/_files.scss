@@ -1,0 +1,84 @@
+@use "../components/rules-css" as *;
+
+/* Start Files */
+.files-page {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    .files-stats {
+        min-width: 260px;
+        .icon {
+            padding: 13px;
+            margin-right: 10px;
+            font-size: 15px;
+        }
+
+        .size {
+            margin-left: auto;
+        }
+
+        .blue {
+            background-color: rgba(0 117 255 / 20%);
+        }
+
+        .green {
+            background-color: rgba(34 179 94 / 20%);
+        }
+
+        .red {
+            background-color: rgba(244 67 54 / 20%);
+        }
+
+        .orange {
+            background-color: rgba(245 158 11 / 20%);
+        }
+
+        .upload {
+            margin: 15px auto 0;
+            cursor: pointer;
+            padding: 10px 15px;
+            transition: .3s;
+            &:hover {
+                background-color: $blue-alt-color;
+                svg {
+                    animation: go-up .8s infinite;
+                }
+            }
+        }
+    }
+
+    .files-content {
+        flex: 1;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        img {
+            width: 64px;
+            height: 64px;
+            transition: .3s;
+        }
+
+        .file:hover img {
+            transform: rotate(5deg);
+        }
+
+        .info {
+            border-top: 1px solid #EEE;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .files-page {
+        flex-direction: column;
+        align-items: normal;
+    }
+}
+
+@keyframes go-up {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+/* End Files */

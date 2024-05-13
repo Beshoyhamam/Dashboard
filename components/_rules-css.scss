@@ -1,0 +1,43 @@
+$blue-color: #0075ff;
+$blue-alt-color: #0d69d5;
+$orange-color: #f59e0b;
+$green-color: #22c55e;
+$red-color: #f44336;
+$grey-color: #888;
+
+* {
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul {
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 13px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #FFF;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $blue-color;
+    border-radius: 20px;
+
+    &:hover {
+        background-color: $blue-alt-color;
+    }
+}

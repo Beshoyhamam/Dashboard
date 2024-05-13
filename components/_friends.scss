@@ -1,0 +1,57 @@
+@use "../components/rules-css" as *;
+
+/* Start Friends */
+.friends-page {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+    .contact {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+
+        svg {
+            background-color: #EEE;
+            padding: 10px;
+            border-radius: 50%;
+            color: #666;
+            font-size: 13px;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                background-color: $blue-color;
+                color: #FFf;
+            }
+        }
+    }
+
+    .icons {
+        border-top: 1px solid #EEE;
+        border-bottom: 1px solid #EEe;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        svg {
+            margin-right: 5px;
+        }
+        .vip {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            opacity: .2;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .friends-page {
+        grid-template-columns: minmax(200px, 1fr);
+        margin-left: 10px;
+        margin-right: 10px;
+        gap: 10px;
+    }
+}
+/* End Friends */

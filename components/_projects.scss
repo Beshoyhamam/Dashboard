@@ -1,0 +1,113 @@
+@use "../components/rules-css" as *;
+
+/* Start Project */
+.projects-page {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+
+    .date {
+        position: absolute;
+        right: 10px;
+        top: 10px
+    }
+
+    h4 {
+        font-weight: normal;
+    }
+
+    .team {
+        position: relative;
+        min-height: 80px;
+
+        a {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            &:nth-child(2) {
+                left: 25px;
+            }
+
+            &:nth-child(3) {
+                left: 50px;
+            }
+
+            &:nth-child(4) {
+                left: 75px;
+            }
+
+            &:nth-child(5) {
+                left: 100px;
+            }
+
+            &:hover {
+                z-index: 1000;
+            }
+            
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: 2px solid #FFF;
+            }
+        }
+    }
+
+    .do {
+        justify-content: flex-end;
+        border-top: 1px solid #EEE;
+        border-bottom: 1px solid #EEE;
+        padding: 15px 0;
+        margin: 15px 0;
+
+        span {
+            padding: 3px 8px;
+            margin-left: 5px;
+            width: fit-content;
+        }
+
+    }
+    .info {
+        .prog {
+            width: 270px;
+            height: 8px;
+            background-color: #EEE;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+
+            span {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 8px;
+                border-radius: 8px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .projects-page {
+        grid-template-columns: minmax(200px, 1fr);
+        margin-left: 10px;
+        margin-right: 10px;
+        gap: 10px;
+
+        .do {
+            flex-direction: column;
+
+            span {
+                margin: auto;
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+        .info {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+}
+/* End Project */

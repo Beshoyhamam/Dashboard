@@ -1,0 +1,289 @@
+@use "../components/rules-css" as *;
+
+/* Start Toggle Checkbox */
+.toggle-checkbox {
+    display: none;
+
+    &:checked + .toggle-switch {
+        background-color: $blue-color;
+    }
+
+    &:checked + .toggle-switch::before {
+        content: "\f00c";
+        left: 48px;
+        color: $blue-color;
+    }
+}
+
+.toggle-switch {
+    background-color: #CCC;
+    width: 78px;
+    height: 32px;
+    border-radius: 16px;
+    position: relative;
+    transition: .3s;
+    cursor: pointer;
+
+    &::before {
+        font-family: "Font Awesome 6 Free";
+        content: "\f00d";
+        font-weight: 900;
+        background-color: #FFF;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        border-radius: 50%;
+        top: 4px;
+        left: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #AAA;
+        transition: .3s;
+    }
+}
+/* End Toggle Checkbox */
+
+/* Start Settings */
+
+/* Start Settings Box */
+.settings-page {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+
+    .close-message {
+        resize: none;
+        min-height: 150px;
+        border: 1px solid #CCC;
+    }
+
+    .check-box {
+        div:nth-of-type(2) {
+            width: fit-content;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .settings-page {
+        grid-template-columns: minmax(100px, 1fr);
+        margin-left: 10px;
+        margin-right: 10px;
+        gap: 10px;
+
+        .check-box {
+            display: block;
+
+            div:nth-of-type(2) {
+                margin-top: 15px;
+            }
+        }
+    }
+}
+/* End Settings Box */
+
+/* Start General Info */
+.settings-page {
+    .email {
+        display: inline-flex;
+        width: calc(100% - 80px);
+        cursor: no-drop;
+        background-color: #f0f4f8;
+        color: #bbb;
+    }
+}
+/* End General Info */
+
+/* Start Security Info */
+.settings-page {
+    .sec-box {
+        padding-bottom: 15px;
+
+        &:not(:last-of-type) {
+            border-bottom: 1px solid #EEE;
+        }
+
+        .button {
+            transition: .3s;
+
+            &:hover {
+                background-color: $blue-alt-color;
+            }
+        }
+    }
+}
+/* End Security Info */
+
+/* Start Social Info */
+.settings-page {
+    .social-boxes {
+        svg {
+            width: 40px;
+            padding: 10px;
+            background-color: #f6f6f6;
+            border: 1px solid #DDD;
+            border-right: none;
+            border-radius: 6px 0 0 6px;
+            transition: .3s;
+            font-size: 18px;
+        }
+
+        input {
+            height: 40px;
+            background-color: #f6f6f6;
+            border: 1px solid #DDD;
+            border-radius: 0 6px 6px 0;
+            padding-left: 10px;
+        }
+
+        >div:focus-within svg {
+            color: #000;
+        }
+    }
+}
+/* Start Social Info */
+
+/* Start Widgets Control */
+.settings-page {
+    .widgets-control {
+        .control {
+            input[type="checkbox"] {
+                display: none;
+            }
+
+            label {
+                padding-left: 30px;
+                cursor: pointer;
+                position: relative;
+
+                &:hover::before {
+                    border-color: $blue-color;
+                }
+
+                &::before,
+                &::after {
+                    font-family: "Font Awesome 6 Free";
+                    content: "";
+                    font-weight: 900;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    margin-top: -9px;
+                    transition: .3s;
+                    border-radius: 5px;
+                }
+
+                &::before {
+                    width: 14px;
+                    height: 14px;
+                    border: 2px solid $grey-color;
+                }
+
+                &::after {
+                    content: "\f00c";
+                    background-color: $blue-color;
+                    color: #FFF;
+                    font-size: 12px;
+                    width: 18px;
+                    height: 18px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transform: scale(0) rotate(360deg);
+                }
+            }
+
+            input[type="checkbox"]:checked + label::after {
+                transform: scale(1);
+            }
+        }
+    }
+}
+/* End Widgets Control */
+
+/* Start Backup Control */
+.settings-page {
+    .backup-control {
+        .date {
+            input[type="radio"] {
+                display: none;
+            }
+
+            label {
+                padding-left: 30px;
+                cursor: pointer;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    margin-top: -11px;
+                    width: 18px;
+                    height: 18px;
+                    border: 2px solid $grey-color;
+                    border-radius: 50%;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 6px;
+                    left: 5px;
+                    width: 12px;
+                    height: 12px;
+                    background-color: $blue-color;
+                    border-radius: 50%;
+                    transform: scale(0);
+                    transition: .3s;
+                }
+            }
+
+            input[type="radio"]:checked + label::after {
+                transform: scale(1);
+            }
+
+            input[type="radio"]:checked + label::before {
+                border-color: $blue-color;
+            }
+        }
+    }
+
+    .servers {
+        input[type="radio"] {
+            display: none;
+        }
+
+        border-top: 1px solid #EEE;
+        padding-top: 10px;
+
+        .server {
+            label {
+                cursor: pointer;
+                position: relative;
+                border: 2px solid #EEE;
+                padding: 15px;
+                border-radius: 10px;
+                transition: .2s;
+            }
+        }
+
+        input[type="radio"]:checked + .server label {
+            border: 2px solid $blue-color;
+            color: $blue-color;
+        }
+
+        
+    }
+}
+
+@media (max-width: 767px) {
+    .settings-page {
+        .servers {
+            flex-wrap: wrap;
+        }
+    }
+}
+/* End Backup Control */
+
+/* End Settings */

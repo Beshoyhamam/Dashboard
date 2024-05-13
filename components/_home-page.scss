@@ -1,0 +1,610 @@
+@use "../components/rules-css" as *;
+
+.page {
+    min-height: 100vh;
+    background-color: #f1f5f9;
+}
+
+/* Start Content */
+.content {
+    overflow: hidden;
+
+    .head {
+        .search {
+            &::before {
+                font-family: "Font Awesome 6 Free";
+                content: "\f002";
+                font-weight: 900;
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 14px;
+                color: $grey-color;
+            }
+
+            input[type="text"] {
+                padding-left: 35px;
+                width: 170px;
+                transition: all .3s;
+                &:focus {
+                    width: 210px;
+                    &::placeholder {
+                        transition: all .3s;
+                        color: transparent;
+                    }
+                }
+            }
+        }
+    
+        .icons {
+            gap: 15px;
+
+            .notification {
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    background-color: $red-color;
+                    border-radius: 50%;
+                    right: -5px;
+                    top: -5px;
+                }
+            }
+
+            img {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+    
+    h1 {
+        margin: 20px 20px 40px;
+    
+        &::before,
+        &::after {
+            content: "";
+            height: 3px;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+    
+        &::before {
+            background-color: #FFF;
+            width: 120px;
+        }
+    
+        &::after {
+            background-color: #000;
+            width: 40px;
+        }
+    }
+
+    .wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .content {
+        .wrapper {
+            grid-template-columns: minmax(200px, 1fr);
+            margin-right: 10px;
+            margin-left: 10px;
+            gap: 10px;
+        }
+    }
+}
+/* End Content */
+
+/* Start Welcome Widget */
+.welcome {
+    overflow: hidden;
+
+    .intro {
+        img {
+            width: 200px;
+            margin-bottom: -10px;
+        }
+    }
+
+    .avatar {
+        width: 65px;
+        height: 65px;
+        border: 2px solid white;
+        border-radius: 50%;
+        padding: 2px;
+        box-shadow: 0 0 5px #DDD;
+        margin-left: 20px;
+        margin-top: -32.5px;
+    }
+
+    .body {
+        border-top: 1px solid #EEE;
+        border-bottom: 1px solid #EEE;
+
+        >div {
+            flex: 1;
+        }
+    }
+
+    .visit {
+        margin: 0 15px 15px auto;
+        transition: all .3s;
+
+        &:hover {
+            background-color: $blue-alt-color;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .welcome {
+        .intro {
+            padding-bottom: 30px;
+        }
+
+        .avatar {
+            margin-left: 0;
+        }
+
+        .body {
+            >div:not(:last-child) {
+                margin-bottom: 23px;
+            }
+        }
+    }
+}
+/* End Welcome Widget */
+
+/* Start Quick Draft Widget */
+.quick-draft {
+    textarea {
+        resize: none;
+        min-height: 180px;
+    }
+
+    .save {
+        margin-left: auto;
+        transition: all .3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $blue-alt-color;
+        }
+    }
+}
+/* End Quick Draft Widget */
+
+/* Start Targets */
+.targets {
+    .targets-row {
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+        }
+    }
+
+    .details {
+        flex: 1;
+        .progress {
+            height: 4px;
+            >span {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+
+                span {
+                    position: absolute;
+                    bottom: 16px;
+                    right: -16px;
+                    color: #FFF;
+                    padding: 2px 5px;
+                    border-radius: 6px;
+                    font-size: 13px;
+
+                    &::after {
+                        content: "";
+                        border-color: transparent;
+                        border-width: 5px;
+                        border-style: solid;
+                        position: absolute;
+                        bottom: -10px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            .blue {
+                span {
+                    &::after {
+                        border-top-color: $blue-color;
+                    }
+                }
+            }
+
+            .orange {
+                span {
+                    &::after {
+                        border-top-color: $orange-color;
+                    }
+                }
+            }
+
+            .green {
+                span {
+                    &::after {
+                        border-top-color: $green-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .blue {
+        .icon,
+        .progress {
+            background-color: #0075ff33;
+        }
+    }
+
+    .orange {
+        .icon,
+        .progress {
+            background-color: #f59e0b33;
+        }
+    }
+
+    .green {
+        .icon,
+        .progress {
+            background-color: #22c55e33;
+        }
+    }
+}
+/* End Targets */
+
+/* Start Ticket Widget */
+.tickets {
+    .box {
+        border: 1px solid #CCC;
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 767px) {
+    .tickets {
+        .box {
+            width: 100%;
+        }
+    }
+}
+/* End Ticket Widget */
+
+/* Start Latest News */
+.latest-news {
+    .news-row {
+        img {
+            width: 100px;
+            border-radius: 6px;
+            margin-right: 15px;
+        }
+
+        &:not(:last-of-type) {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #EEE;
+        }
+
+        .info {
+            flex-grow: 1;
+
+            h3 {
+                margin: 0 0 5px;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .latest-news {
+        .news-row {
+            flex-direction: column;
+            gap: 15px;
+
+            .info {
+                line-height: 1.8;
+            }
+        }
+    }
+}
+/* End Latest News */
+
+/* Start Tasks */
+.tasks {
+    .task-row {
+        &:not(:last-of-type) {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #EEE;
+        }
+
+        .info {
+            flex-grow: 1;
+        }
+
+        .deletde {
+            cursor: pointer;
+            padding: 0 3px;
+        }
+    }
+
+    .done {
+        opacity: .4;
+
+        h3, p {
+            text-decoration: line-through;
+        }
+
+        .deletde {
+            cursor: unset;
+        }
+    }
+}
+/* End Tasks */
+
+/* Start Latest Uploads */
+.latest-uploads {
+    ul {
+        li {
+            &:not(:last-child) {
+                border-bottom: 1px solid #EEE
+            }
+
+            img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
+/* End Latest Uploads */
+
+/* Start Last Project Progress Widget */
+.last-project {
+    ul {
+        &::before {
+            content: "";
+            position: absolute;
+            left: 16px;
+            width: 2px;
+            height: 96%;
+            background-color: $blue-color;
+        }
+
+        li {
+            &::before {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #FFF;
+                border: 7px solid #FFF;
+                outline: 2px solid $blue-color;
+                margin-right: 15px;
+                z-index: 1;
+            }
+    
+            &.done {
+                &::before {
+                    content: "";
+                    background-color: $blue-color;
+                }
+            }
+
+            &.current {
+                &::before {
+                    content: "";
+                    animation: change-color .8s infinite alternate;
+                }
+            }
+        }
+    }
+
+    .launch-icon {
+        position: absolute;
+        width: 180px;
+        right: 0;
+        bottom: 0;
+        opacity: .3;
+    }
+}
+/* End Last Project Progress Widget */
+
+/* Start Reminders Widget */
+.reminders {
+    ul {
+        li {
+            .key {
+                width: 15px;
+                height: 15px;
+            }
+
+            >.blue {
+                border-left: 2px solid $blue-color;
+            }
+
+            >.green {
+                border-left: 2px solid $green-color;
+            }
+
+            >.orange {
+                border-left: 2px solid $orange-color;
+            }
+
+            >.red {
+                border-left: 2px solid $red-color;
+            }
+        }
+    }
+}
+/* End Reminders Widget */
+
+/* Start Latest Post Widget */
+.letest-post {
+    .avatar {
+        width: 48px;
+        height: 48px;
+    }
+
+    .post-content {
+        text-transform: capitalize;
+        line-height: 1.8;
+        border-top: 1px solid #EEE;
+        border-bottom: 1px solid #EEE;
+        min-height: 140px;
+    }
+}
+/* End Latest Post Widget */
+
+/* Start Social Media */
+.social-media {
+    .box {
+        padding-left: 70px;
+
+        .icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            transition: all .3s;
+            padding: 11px 0;
+
+            &:hover {
+                transform: rotate(5deg);
+            }
+        }
+    }
+
+    .twitter {
+        background-color: #1da0f24d;
+        color: #1da1f2;
+
+        .icon, a {
+            background-color: #1da1f2;
+        }
+    }
+
+    .facebook {
+        background-color: #1876f24a;
+        color: #1877f2;
+
+        .icon, a {
+            background-color: #1877f2;
+        }
+    }
+
+    .youtube {
+        background-color: #ff00004e;
+        color: #ff0000;
+
+        .icon, a {
+            background-color: #ff0000;
+        }
+    }
+
+    .linkedin {
+        background-color: #0076b546;
+        color: #0077b5;
+
+        .icon, a {
+            background-color: #0077b5;
+        }
+    }
+}
+/* End Social Media */
+
+/* Start Projects Table */
+.projects {
+    .responsive-table {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 1000px;
+        border-spacing: 0;
+
+        td {
+            padding: 15px;
+        }
+
+        img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            padding: 2px;
+            background-color: #FFF;
+
+            &:not(:first-of-type) {
+                margin-left: -20px;
+            }
+        }
+    }
+
+    thead {
+        td {
+            background-color: #EEE;
+            font-weight: bold;
+        }
+
+    }
+
+    tbody {
+        tr {
+            td {
+                border-bottom: 1px solid #EEE;
+                border-left: 1px solid #EEE;
+                transition: all .3s;
+    
+                &:last-child {
+                    border-right: 1px solid #EEE;
+                }    
+            }
+
+            &:hover {
+                td {
+                    background-color: #faf7f7;
+                }
+            }
+
+            .label {
+                font-size: 13px;
+            }
+        }
+        
+    }
+}
+
+/* End Projects Table */
+
+/* Start Animation */
+@keyframes change-color {
+    from {
+        background-color: $blue-color;
+    }
+
+    to {
+        background-color: #FFF;
+    }
+}
+/* End Animation */
